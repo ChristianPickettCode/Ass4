@@ -202,8 +202,6 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 
  	if (mannaANDgold[1] < 0) {
 		mannaANDgold[1] += val;
-		char *data = "none";
-		cmdREFRESH(data,URL, mannaANDgold);
 
 		char *data = "You don't have enough gold, sorry";
 		cmdREFRESH(data, URL, mannaANDgold);

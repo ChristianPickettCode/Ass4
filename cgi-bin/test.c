@@ -319,7 +319,8 @@ void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 
 	//printf("</div>\n");
 	printf("<center><form action='test.cgi' method='post'>\n");
-	printf("<input type='text' name='cmd' required class='search-box'>\n");
+	printf("<input type='hidden' name='inventory' value='%i,%i'>\n", mannaANDgold[0], mannaANDgold[1]);
+	printf("<input type='text' name='command' required class='search-box'>\n");
 	printf("<submits><input type='submit' class='button' value='Submit'></submits>\n");
 	printf("</form></center>\n");
 	printf("</body>\n");

@@ -252,7 +252,8 @@ void cmdPLAY(char *data, char *URL) {
     printf("</div>\n");
 
     printf("<center><form action='program.cgi' method='post'>\n");
-    printf("<input type='text' name='cmd' required class='search-box'>\n");
+    printf("<input type='hidden' name='inventory' value='10,20'>\n");
+    printf("<input type='text' name='command' required class='search-box'>\n")
     printf("<submits><input type='submit' class='button' value='Submit'></submits>\n");
     printf("</form></center>\n");
 

@@ -243,6 +243,13 @@ right: 0;
 width: 100%;
 }
 
+ul {
+	position: absolute;
+}
+
+li {
+	position: absolute;
+}
 
 span {
 color: white;

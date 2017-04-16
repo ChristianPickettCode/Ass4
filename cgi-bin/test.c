@@ -4,11 +4,11 @@
 #include <ctype.h>
 #include "program.c"
 typedef struct {
-	
+
 	int manna;
 	int gold;
 	int occupied;
-	
+
 } Room;
 
 void printInput(char string[], int n);
@@ -20,7 +20,7 @@ void cmdDROP();
 void cmdPLAY();
 void cmdEXIT();
 void cmdREFRESH(char data, char *URL, int *mannaANDgold);
-
+// Fuck you Ben, you fucked us all
 void decode(char *string, int *mannaANDgold, char *URL, Room room);
 
 int mannaANDgold[2];
@@ -32,19 +32,19 @@ void writeToCSV(char *fileNmae, int manna, int gold, int occupied);
 
 
 int main() {
-		
+
 	char string[200];
-	
+
 	int mannaANDgold[2];
 	int lengthOfInput = atoi(getenv("CONTENT_LENGTH"));
-	
+
 	char *URL = getenv("HTTP_REFERER");
-	
+
 	char a[200];
 	char b[200];
 
 	string[lengthOfInput] = '\0';
-	
+
 	fixSpaces(string, lengthOfInput);
 
 
@@ -55,19 +55,19 @@ int main() {
 }
 
 Room readCSV(char *fileName) {
-	
+
 	Room room;
 
 	FILE *file = fopen(fileName, "r");
 
 	char buffer[50];
-	
+
 	fgets(buffer, sizeof(buffer), file);
 
 	char *tok = strtok(buffer, ",");
 
 	room.manna = atoi(tok);
-	
+
 
 	tok = strtok(NULL, ",");
 
@@ -86,7 +86,7 @@ Room readCSV(char *fileName) {
 }
 
 void writeToCSV(char *fileName, int manna, int gold, int occupied) {
-	
+
 	FILE *file = fopen(fileName, "w");
 	fprintf(file, "%i,%i,%i", manna, gold, occupied);
 	fclose(file);
@@ -95,12 +95,12 @@ void writeToCSV(char *fileName, int manna, int gold, int occupied) {
 
 void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room) {
 	//printf("command: %s", cmd);
-	
+
 	if (strstr(cmd, "DROP") != NULL) {
 
 		cmdDROP(cmd, URL, mannaANDgold, room);
 	}
-	
+
 	else if (strcmp(cmd, "PLAY") == 0) {
 		cmdPLAY();
 	}
@@ -111,9 +111,9 @@ void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room) {
 	else if (strcmp(cmd, "REFRESH") == 0) {
 		char *data = "non";
 		cmdREFRESH(data,URL, mannaANDgold);
-	}	
+	}
 	else {
-		printf("NOT A COMMAND");	
+		printf("NOT A COMMAND");
 	}
 
 }
@@ -121,26 +121,26 @@ void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room) {
 void decode(char *string, int *mannaANDgold, char *URL, Room room) {
 
 	char temp[100];
-	
+
 	int index = 0;
-	
+
 	while (string[index] && string[index] != '=') {
 		index++;
 	}
 
 	index++;
-	int n = 0;	
+	int n = 0;
 	while (string[index] && string[index] != '%') {
 		temp[n] = string[index];
 		n++;
 		index++;
 	}
-	
+
 	temp[n] = '\0';
-	
+
 	int manna  = atoi(temp);
 	//printf("<p>manna: %i</p>\n", manna);
-	
+
 	n = 0;
 	memset(&temp[0], 0, sizeof(temp));
 	index = index + 3;
@@ -155,7 +155,7 @@ void decode(char *string, int *mannaANDgold, char *URL, Room room) {
 
 	int gold = atoi(temp);
 	//printf("<p>gold: %i</p>", gold);
-	
+
 	/* After this is for getting command can move somewhere else  */
 	memset(&temp[0], 0, sizeof(temp));
 
@@ -173,13 +173,13 @@ void decode(char *string, int *mannaANDgold, char *URL, Room room) {
 	//printf("<p>source: %s</p>", string);
 
 	temp[n] = '\0';
-	
+
 	char *CMD = temp;
 
 	//printf("CMD: %s", CMD);
 
 	//memset(&temp[0], 0, sizeof(temp));
-	
+
 
 	//printf("<p>length: %i</p>", strlen(mannaANDgold));
 
@@ -205,7 +205,7 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 			cmd++;
 		}
 	}
-	
+
 
 	mannaANDgold[1] -= val;
 
@@ -225,9 +225,9 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 		writeToCSV("resources.csv", room.manna, room.gold+val, room.occupied);
 		cmdREFRESH("non",URL, mannaANDgold);
 		printf("<p>DROPPED %i GOLD</p>", val);
-		
+
 	}
-	
+
 	//printf("<p>DROPPED %i GOLD</p>", val);
 	//printf("<p>New gold is %i</p>", mannaANDgold[1]);
 	//decode(string,mannaANDgold, URL);
@@ -258,7 +258,7 @@ void cmdEXIT() {
 
 void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 	//printf("REFRESHING");
-	printf("Content-Type:text/html\n\n");	
+	printf("Content-Type:text/html\n\n");
 	printf("<!DOCTYPE html>\n");
 	printf("<html>\n");
 	printf("<head>\n");
@@ -290,51 +290,51 @@ void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 	printf("</body>\n");
 	printf("</html>\n");
 
-	
+
 
 	//printf(page, mannaANDgold[0], mannaANDgold[1], mannaANDgold[0], mannaANDgold[1]);
 }
 
 void getValue(char newArr[], char array[], int index) {
-	
+
 	int i = 0;
-	
+
 	while(array[index] != '&' && i < 10) {
-		
-		newArr[i] = array[index];	
+
+		newArr[i] = array[index];
 		//printf("new: %s", newArr);
 		//printf("arr: %s", array);
 		index++;
 		i++;
-	
+
 	}
 
 }
 
 
 void fixSpaces(char string[], int n) {
-	
+
 	char c;
 	int a = 0;
 
 	while ((c = getchar()) != EOF && a < n) {
-		
+
 		if (a < 200) {
-			
+
 			if (c != '+') string[a] = c;
-		 		
+
 				else string[a] = ' ';
-		  
+
 			a++;
-			
+
 			}
 		}
 }
 
 void printInput(char string[], int n) {
-	
+
 	int i;
-	
+
 	for(i = 0; i < n; i++ ) {
 		printf("\n");
 		printf("%i: %c\n",i,string[i]);
@@ -343,4 +343,3 @@ void printInput(char string[], int n) {
 	printf("In loop: | %s | ", string);
 
 }
-

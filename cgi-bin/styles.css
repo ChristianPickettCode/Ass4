@@ -236,11 +236,19 @@ width: 10%;
 }
 
 h2 {
-position: relative;
-top: 30%;
-left: 0;
-right: 0;
-width: 100%;
+	position: absolute;
+	top: 30%;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+h3 {
+	position: absolute;
+    top: 6%;
+    left: 0;
+	right: 0;
+    width: 100%;
 }
 
 ul {

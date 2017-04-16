@@ -170,23 +170,14 @@ void decode(char *string, int *mannaANDgold, char *URL, Room room) {
 		n++;
 		index++;
 	}
-	//printf("<p>source: %s</p>", string);
 
 	temp[n] = '\0';
 	
 	char *CMD = temp;
 
-	//printf("CMD: %s", CMD);
-
-	//memset(&temp[0], 0, sizeof(temp));
-	
-
-	//printf("<p>length: %i</p>", strlen(mannaANDgold));
-
 	mannaANDgold[0] = manna;
 	mannaANDgold[1] = gold;
 
-	//printf("<p>length: %i</p>", strlen(mannaANDgold));
 	checkCMD(CMD, URL, mannaANDgold, room);
 
 }
@@ -200,8 +191,8 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 	while (*cmd) {
 		if (isdigit(*cmd)) {
 			val = strtol(cmd, &cmd, 10);
-			//printf("%d", val);
-		}else {
+
+		} else {
 			cmd++;
 		}
 	}

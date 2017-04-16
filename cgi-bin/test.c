@@ -217,8 +217,8 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 		}
 		//printf("<h1>New Manna: %i</h1>", mannaANDgold[0]);
 		writeToCSV("resources.csv", room.manna, room.gold+val, room.occupied);
-		cmdREFRESH("non",URL, mannaANDgold);
-		printf("<p>DROPPED %i GOLD</p>", val);
+		char *data = "DROPPED %i GOLD", val;
+		cmdREFRESH(data, URL, mannaANDgold);
 
 	}
 

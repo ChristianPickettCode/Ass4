@@ -107,11 +107,13 @@ void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room) {
 		cmdEXIT();
 	}
 	else if (strcmp(cmd, "REFRESH") == 0) {
-		char *data = "non";
+		char *data = "REFRESH";
 		cmdREFRESH(data, URL, mannaANDgold);
 	}
 	else {
-		printf("NOT A COMMAND");
+
+		char *data = "NOT A COMMAND";
+		cmdREFRESH(data, URL, mannaANDgold);
 	}
 
 }
@@ -202,12 +204,16 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 		mannaANDgold[1] += val;
 		char *data = "none";
 		cmdREFRESH(data,URL, mannaANDgold);
-		//printf("<p>YOU DON'T HAVE ENOUGH GOLD. SORRY</p>");
+
+		char *data = "You don't have enough gold, sorry";
+		cmdREFRESH(data, URL, mannaANDgold);
 	} else {
 		int j;
 		for (j = val; j > 0; j--) {
 			if (j % 2 == 0 & j != 0) {
 				printf("<p> 1 manna</p>");
+				char *data = "Gained 1 Manna";
+				cmdREFRESH(data, URL, mannaANDgold);
 				mannaANDgold[0] ++;
 			}
 		}

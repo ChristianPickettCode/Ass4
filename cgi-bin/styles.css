@@ -251,7 +251,7 @@ ul {
 
 li {
 	position: absolute;
-	display: block;
+	display: inline-flex;
 	margin-bottom: 20px;
 	width: 100px;
 	height: 20px;

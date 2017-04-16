@@ -236,7 +236,7 @@ width: 10%;
 }
 
 h2 {
-position: absolute;
+position: relative;
 top: 30%;
 left: 0;
 right: 0;

@@ -213,9 +213,6 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 				char *data = "DROPPED GOLD, AND GAINED MANNA";
 				cmdREFRESH(data, URL, mannaANDgold);
 				mannaANDgold[0]++;
-			} else {
-				char *data = "DROPPED GOLD";
-				cmdREFRESH(data, URL, mannaANDgold);
 			}
 		}
 		//printf("<h1>New Manna: %i</h1>", mannaANDgold[0]);

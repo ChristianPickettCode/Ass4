@@ -8,7 +8,7 @@ form = cgi.FieldStorage()
 inventory = form.getvalue('inventory')
 URL = form.getvalue('URL')
 
-inFile = open("test.csv")
+inFile = open("resources.csv")
 reader = csv.reader(inFile)
 data = list(reader)
 isOccupied = data[2]

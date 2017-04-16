@@ -312,12 +312,7 @@ void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 	printf("<north><span><a href='http://www.facebook.com' class='button'>North</a></span></north>\n");
 	printf("<south><span><a href='http://www.facebook.com' class='button'>South</a></span></south>\n");
 	printf("</form></center>\n");
-	//printf("\n");
-	//printf("\n");
-	//printf("\n");
 
-
-	//printf("</div>\n");
 	printf("<center><form action='test.cgi' method='post'>\n");
 	printf("<input type='hidden' name='inventory' value='%i,%i'>\n", mannaANDgold[0], mannaANDgold[1]);
 	printf("<input type='text' name='command' required class='search-box'>\n");
@@ -327,8 +322,6 @@ void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 	printf("</html>\n");
 
 
-
-	//printf(page, mannaANDgold[0], mannaANDgold[1], mannaANDgold[0], mannaANDgold[1]);
 }
 
 void getValue(char newArr[], char array[], int index) {

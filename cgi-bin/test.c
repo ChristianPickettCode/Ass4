@@ -220,6 +220,7 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 
 }
 void cmdPLAY() {
+	printf("Content-Type:text/html\n\n");
 	printf("<p>PLAY</p>");
 }
 

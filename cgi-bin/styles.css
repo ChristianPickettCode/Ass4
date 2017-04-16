@@ -245,6 +245,7 @@ width: 100%;
 
 ul {
 	position: absolute;
+	display: block;
 }
 
 li {

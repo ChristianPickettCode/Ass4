@@ -209,7 +209,6 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 		int j;
 		for (j = val; j > 0; j--) {
 			if (j % 2 == 0 & j != 0) {
-				printf("<p> 1 manna</p>");
 				char *data = "Gained 1 Manna";
 				cmdREFRESH(data, URL, mannaANDgold);
 				mannaANDgold[0] ++;
@@ -298,7 +297,7 @@ void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 	printf("<div class='fill-screen'>\n");
 	printf("<img class='make-it-fit' src='Dino.jpg' width=\"100%\" height=\"100%\">\n");
 	
-	printf("<h3><span>%s</span></h3>", data);
+	printf("<h2><span>%s</span></h2>", data);
 	printf("</div>\n");
 
 	printf("<ul><li class='inv'>Inventory: </h3></li>\n");

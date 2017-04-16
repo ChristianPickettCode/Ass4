@@ -250,7 +250,7 @@ ul {
 }
 
 li {
-	position: absolute;
+	position: relative;
 	display: inline-flex;
 	margin-bottom: 20px;
 	width: 100px;

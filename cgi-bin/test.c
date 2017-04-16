@@ -32,47 +32,24 @@ void writeToCSV(char *fileNmae, int manna, int gold, int occupied);
 
 
 int main() {
-	
-	//printf("csv: %s\n", readCSV("resources.csv");
-
-	//printf("Content-Type: text/html\n\n");
-	//printf("This is Working");	
+		
 	char string[200];
 	
 	int mannaANDgold[2];
 	int lengthOfInput = atoi(getenv("CONTENT_LENGTH"));
 	
 	char *URL = getenv("HTTP_REFERER");
-
-	//printf("ref: %s", URL);
-
-	//char *data = getenv("QUERY_STRING");	
 	
 	char a[200];
 	char b[200];
-	
-	//sscanf(data, "inventory=%i%%2C%i", mannaANDgold[0], mannaANDgold[1]);
-	
-	//sscanf(data,"inventory=%&%",&a,&b);	
-	
-	//printf("<p>data: %s<p>\n", data);
 
 	string[lengthOfInput] = '\0';
 	
 	fixSpaces(string, lengthOfInput);
 
-	//printInput(string, lengthOfInput);
 
 	Room room = readCSV("resources.csv");
 	decode(string, mannaANDgold, URL, room);
-	
-	//printf("<p>csv: %i </p>", readCSV("resources.csv").gold);
-	
-	//printf("<p>Room Manna: %i</p>", room.manna);
-
-	//printf("<p>Room Gold: %i</p>", room.gold);
-
-	//printf("<p>Room Occupied: %i</p>", room.occupied);
 
 	return 0;
 }
@@ -91,19 +68,15 @@ Room readCSV(char *fileName) {
 
 	room.manna = atoi(tok);
 	
-	//printf("<p>Room Manna: %i</p>", room.manna);
 
 	tok = strtok(NULL, ",");
 
 	room.gold = atoi(tok);
 
-	//printf("<p>Room Gold: %i</p>", room.gold);
 
 	tok = strtok(NULL, ",");
 
 	room.occupied = atoi(tok);
-
-	//printf("<p>Room Occupied: %i</p>", room.occupied);
 
 
 	fclose(file);

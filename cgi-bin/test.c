@@ -296,6 +296,12 @@ void cmdREFRESH(char *data, char *URL, int *mannaANDgold) {
 	printf("<body bgcolor='white' text='black'>\n");
 	printf("<div class='fill-screen'>\n");
 	printf("<img class='make-it-fit' src='Dino.jpg' width=\"100%\" height=\"100%\">\n");
+	
+	printf("<ul><li class='inv'>Inventory: </h3></li>\n");
+	printf("<li class='gold'>Gold: %i</li>\n", mannaANDgold[1]);
+	printf("<li class='manna'>Manna: %i</li></ul>\n", mannaANDgold[0]);
+	//printf("\n");
+
 	printf("<h3><span>%s</span></h3>", data);
 	printf("</div>\n");
 	printf("<center><form class='placement'>\n");

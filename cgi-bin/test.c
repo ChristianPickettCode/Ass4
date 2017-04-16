@@ -205,20 +205,21 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 
 		char *data = "You don't have enough gold, sorry";
 		cmdREFRESH(data, URL, mannaANDgold);
+
 	} else {
 		int j;
 		for (j = val; j > 0; j--) {
 			if (j % 2 == 0 & j != 0) {
-				char *data = "Gained 1 Manna";
+				char *data = "DROPPED GOLD, AND GAINED MANNA";
 				cmdREFRESH(data, URL, mannaANDgold);
-				mannaANDgold[0] ++;
+				mannaANDgold[0]++;
+			} else {
+				char *data = "DROPPED GOLD";
+				cmdREFRESH(data, URL, mannaANDgold);
 			}
 		}
 		//printf("<h1>New Manna: %i</h1>", mannaANDgold[0]);
 		writeToCSV("resources.csv", room.manna, room.gold+val, room.occupied);
-		//char *data = "DROPPED GOLD",val;
-
-		//cmdREFRESH(data, URL, mannaANDgold);
 
 	}
 

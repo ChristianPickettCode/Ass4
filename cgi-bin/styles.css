@@ -245,13 +245,13 @@ width: 100%;
 
 ul {
 	position: relative;
-
 	width: 110px;
 	height: 70px;
 }
 
 li {
 	position: absolute;
+	display: block;
 	margin-bottom: 20px;
 	width: 100px;
 	height: 20px;

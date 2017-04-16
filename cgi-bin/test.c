@@ -255,7 +255,7 @@ void cmdPLAY(char *data, char *URL) {
     printf("</body>\n");
     printf("</html>\n");
     
-    if(activator == 1 || activator == 3) printf("<meta http-equiv='refresh' content='5; url=http://cs.mcgill.ca/~bkinse/cgi-bin/room.html'>");
+    if(activator == 1 || activator == 3) printf("<meta http-equiv='refresh' content='0; url=http://cgi64.cs.mcgill.ca/~cpicke5/cgi-bin/room.html'>");
 
 
 }

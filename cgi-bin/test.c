@@ -19,8 +19,8 @@ void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room);
 void cmdDROP();
 void cmdPLAY();
 void cmdEXIT();
-void cmdREFRESH(char data, char *URL, int *mannaANDgold);
-// Fuck you Ben, you fucked us all
+void cmdREFRESH(char *data, char *URL, int *mannaANDgold);
+
 void decode(char *string, int *mannaANDgold, char *URL, Room room);
 
 int mannaANDgold[2];
@@ -68,7 +68,6 @@ Room readCSV(char *fileName) {
 
 	room.manna = atoi(tok);
 
-
 	tok = strtok(NULL, ",");
 
 	room.gold = atoi(tok);
@@ -94,7 +93,6 @@ void writeToCSV(char *fileName, int manna, int gold, int occupied) {
 }
 
 void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room) {
-	//printf("command: %s", cmd);
 
 	if (strstr(cmd, "DROP") != NULL) {
 
@@ -110,7 +108,7 @@ void checkCMD(char *cmd, char *URL, int *mannaANDgold, Room room) {
 	}
 	else if (strcmp(cmd, "REFRESH") == 0) {
 		char *data = "non";
-		cmdREFRESH(data,URL, mannaANDgold);
+		cmdREFRESH(data, URL, mannaANDgold);
 	}
 	else {
 		printf("NOT A COMMAND");
@@ -202,7 +200,8 @@ void cmdDROP(char *cmd, char *URL, int *mannaANDgold, Room room) {
 
  	if (mannaANDgold[1] < 0) {
 		mannaANDgold[1] += val;
-		cmdREFRESH("none",URL, mannaANDgold);
+		char *data = "none";
+		cmdREFRESH(data,URL, mannaANDgold);
 		//printf("<p>YOU DON'T HAVE ENOUGH GOLD. SORRY</p>");
 	} else {
 		int j;
